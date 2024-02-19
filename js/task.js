@@ -56,16 +56,15 @@ console.log(findSmallesNumber(numbers));
 // на противоположный
 
 const changeCase = function (string) {
-
     const arrayLetters = string.split('');
     let invertedString = '';
 
     arrayLetters.forEach((letter) => {
-       
         const isInLowerCase = letter === letter.toLowerCase();
        
         invertedString += isInLowerCase ? letter.toUpperCase() : letter.toLowerCase();
     });
+
     return invertedString;
 };
 console.log(changeCase('kHAmAlA'));
@@ -73,6 +72,19 @@ console.log(changeCase('kHAmAlA'));
 
 
 
+/*
+// 5.	Напиши функцию slugify(string), которая получает строку и возвращает URL-slug. 
+// Строка состоит только из букв и пробелов.
+
+function slugify(title) {
+    return title.toLowerCase().split(" ").join("-");
+};
+
+console.log(slugify("Arrays for begginers")); // "arrays-for-begginers"
+console.log(slugify("English for developer")); // "english-for-developer"
+console.log(slugify("Ten secrets of JavaScript")); // "ten-secrets-of-javascript"
+console.log(slugify("How to become a JUNIOR developer in TWO WEEKS"));
+*/
 
 
 
