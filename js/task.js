@@ -32,14 +32,59 @@ const message = (logins, login) => {
     ? `Пользователь ${login} найден`
     : `Пользователь ${login} найден`
 };
-
 console.log(message(logins, loginToFind));
 */
 
 
+
 /*
 // 3.	Напиши ф-цию findSmallesNumber(number) для поиска самого маленького числа в массиве чисел.
+// При условии, что числа уникальные
 
+const numbers = [2, 17, 94, 1, 23, 37];
 
-
+const findSmallesNumber = function (params) {
+    return Math.min(...params);
+};
+console.log(findSmallesNumber(numbers));
 */
+
+
+
+/*
+// 4. Напиши функцию changeCase(string), которая заменяет регистр каждого символа в строке
+// на противоположный
+
+const changeCase = function (string) {
+
+    const arrayLetters = string.split('');
+    let invertedString = '';
+
+    arrayLetters.forEach((letter) => {
+        const checkLetter = letter.toLowerCase();
+        
+        if (letter === checkLetter) {
+            const newLetter = letter.toUpperCase();
+            invertedString += newLetter;
+        } else {
+            const newLetter = letter.toLowerCase();
+            invertedString += newLetter;
+        };
+    });
+     return invertedString;
+};
+console.log(changeCase('kHAmAlA'));
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
