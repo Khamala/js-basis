@@ -61,20 +61,18 @@ const changeCase = function (string) {
     let invertedString = '';
 
     arrayLetters.forEach((letter) => {
-        const checkLetter = letter.toLowerCase();
-        
-        if (letter === checkLetter) {
-            const newLetter = letter.toUpperCase();
-            invertedString += newLetter;
-        } else {
-            const newLetter = letter.toLowerCase();
-            invertedString += newLetter;
-        };
+       
+        const isInLowerCase = letter === letter.toLowerCase();
+       
+        invertedString += isInLowerCase ? letter.toUpperCase() : letter.toLowerCase();
     });
-     return invertedString;
+    return invertedString;
 };
 console.log(changeCase('kHAmAlA'));
 */
+
+
+
 
 
 
