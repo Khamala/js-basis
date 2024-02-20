@@ -90,12 +90,14 @@ console.log(colorPickerData);
 // который эту функцию вызвал. this есть только у функции
 
 
-*/
+
 const playlist = {
     name: 'Мой плейлист',
     rating: 5,
     tracks: ['track-1', 'track-2', 'track-3', 'track-4'],
-    trackCount: 4,
+    // Это называется вычисляемые свойства. Т.е. ДИНАМИЧЕСКОЕ ЗНАЧЕНИЕ
+    // Т.е.я могу на базе одного свойства, которое у меня есть, получить другое значение
+    // trackCount: 4,
 
     getName() {
         console.log(playlist.name);
@@ -113,11 +115,15 @@ const playlist = {
     // У меня есть на объекте СТАТИЧЕСКОЕ СВОЙСТВО trackCount.
     // И оно пока что не обновляется, когда я изменяю количество треков. НО ТАК ДЕЛАТЬ ПЛОХО. 
     // Количество треков в плейлисте не нужно хранить на самом плейлисте, потому что у нас 
-    // всегда есть количество треков как длинна массивов.
+    // всегда есть количество треков как длинна массива.
+    // Также и с корзиной товаров- нет смысла ее общую сумму хранить
     
-
-        this.trackCount = this.tracks.length;
+    // this.trackCount = this.tracks.length;
         return this.tracks;
+    },
+
+    getTrackCount() {
+        return this.tracks.length;
     },
 
     // Метод - Обновить рейтинг
@@ -126,24 +132,66 @@ const playlist = {
         return this.rating;
     },
 };
-
 playlist.getName();
 playlist.changeName('My playlist');
 playlist.addTrack('new track');
 playlist.updateRating(7);
 
-console.log(playlist);
-
-
-
-
-
-
-
-
-
+console.log(playlist.getTrackCount());
+*/
 
 
 /*
+                // 6. ПЕРЕБОР ОБЪЕКТА
 
+// Метод for...in перебирает не только собственные свойства объекта, но и унаследованные. 
+// Также for in не используется для перебора массивов. МОЖНО, но НЕ НУЖНО.
+
+// Помните, есть конструкторы Number, Boolean, Array - из которых вот эти базовые типы и получаются
+// Есть родительский конструктор Object со специальными методами: Object.keys, Object.values
+
+ 
+const feedback = {
+    good: 5,
+    neutral: 10,
+    bad: 3,
+};
+    // Я буквально говорю - получи массив ключей из объекта feedback и уже после этого, 
+    // я получнный массив перебираю через обычный for of
+
+const keys = Object.keys(feedback);
+let totalFeedback = 0;
+
+for (const key of keys) {
+    // key это переменная, в которую на каждой итерации записывается имя ключа, 
+    // а синтаксис квадратных скобок позволяет получить значение этого ключа
+    totalFeedback += feedback[key];
+}
+
+console.log(totalFeedback);
 */
+
+/*
+// Объекты бывают просто как хранилища, в них нет методов. Этот наш объект просто хранит данные
+
+// Если нам не нужно сами получить ключи, а только взять значения ключей и все, то  Object.values
+// Object.keys ВОЗВРАЩАЕТ МАССИВ КЛЮЧЕЙ
+// Object.values ВОЗВРАЩАЕТ МАССИВ ЗНАЧЕНИЙ
+
+const values = Object.values(feedback);
+
+console.log(values);
+
+for (const value of values) {
+    totalFeedback += value;
+};
+
+console.log('totalFeedback: ', totalFeedback);
+*/
+
+
+
+
+
+
+
