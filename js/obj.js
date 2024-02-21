@@ -238,6 +238,10 @@ console.log(friends);
 
 
 
+
+
+
+
 /*
 Object.newFn = function () {
     console.log('Я новая функция');

@@ -88,6 +88,155 @@ console.log(slugify("How to become a JUNIOR developer in TWO WEEKS"));
 
 
 
+                        // РЕПЕТА Модуль 3, затятие 5 ОБЪЕКТЫ       
+
+// 6.   ЗАДАЧА - Есть массив объектов. Ищем друга по имени.
+/*
+   const friends = [
+    { name: 'Mango', online: false },
+    { name: 'Kiwi', online: true },
+    { name: 'Poly', online: false },
+    { name: 'Ajax', online: true },
+]
+
+function findByName(findFrend, allFriends) {
+    for (const frend of friends) {
+        if (frend.name === findFrend) {
+            return `Друг с именем ${findFrend} есть в базе данных`;
+        };
+    };
+    return `Друг с именем ${findFrend} отсутствует в базе данных`;
+};
+
+console.log(findByName('Poly', friends));
+console.log(findByName('Po', friends));
+*/
+
+
+
+
+/*
+ПЕРЕПИСАТЬ на find !!!
+
+const findFrend = "Poly";
+const a = friends.find((findFrend, friend) => { 
+    if (friend.name === findFrend) {
+        return `Друг с именем ${findFrend} есть в базе данных`;
+    };
+});
+console.log(a);
+*/
+
+
+
+
+
+ // ПОЛУЧАЕМ ВСЕ ИМЕНА ДРУЗЕЙ ИЗ МАССИВА ДРУЗЕЙ:
+
+const getAllNames = function (allFriends) {
+    let allNames = [];
+    
+    for (let friend of allFriends){
+        allNames.push(friend.name);
+    };
+
+    return allNames;
+};
+
+console.log(getAllNames(friends));
+
+
+                // ПОЛУЧАЕМ ВСЕХ ДРУЗЕЙ, КОТОРЫЕ ОНЛАЙН. Не имена а целиком друзей
+
+const getFrendsByOnline = function (allFriends) {
+    let frendsByOnline = [];
+    
+    for (let friend of allFriends) {
+        if (friend.online) {
+            frendsByOnline.push(friend);
+        };
+    };
+
+    return frendsByOnline;
+};
+
+console.log(getFrendsByOnline(friends));
+
+
+                // ПОЛУЧАЕМ ОБЪЕКТ С 2МЯ МАССИВАМИ - ВСЕХ ДРУЗЕЙ, КОТОРЫЕ ОНЛАЙН И КОТОРЫЕ ОФФЛАЙН:
+
+const getFrendsByOnlineStatus = function (allFriends) {
+    let frendsByOnline = [];
+    let frendsByOffline = [];
+
+    for (let friend of allFriends) {
+
+        if (friend.online) {
+            frendsByOnline.push(friend);
+        } else {
+            frendsByOffline.push(friend);
+        };
+    };
+
+    return {frendsByOffline, };
+};
+
+console.log(getFrendsByOnlineStatus(friends));
+
+
+const getFrendsByOnlineStatus1 = function (allFriends) {
+    const frendsByStatus = {
+        online: [],
+        offline: [],
+    };
+
+    for (let friend of allFriends) {
+
+        if (friend.online) {
+            frendsByStatus.online.push(friend);
+        } else {
+            frendsByStatus.offline.push(friend);
+        };
+    };
+
+    return frendsByStatus;
+};
+        
+console.log(getFrendsByOnlineStatus1(friends));
+
+
+
+
+
+
+
+
+
+const friends = [
+    { name: 'Mango', online: false },
+    { name: 'Kiwi', online: true },
+    { name: 'Poly', online: false },
+    { name: 'Ajax', online: true },
+];
+
+                
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
