@@ -579,15 +579,21 @@ console.log(cart.countTotalPrice());
 */
     
         
+
 // 11.    ЗАДАЧА - Поиск самой маленькой или большой температуры. SPRED
 // РЕПЕТА Модуль 3, затятие 6 ОБЪЕКТЫ
 /*       
-
-*/
 // Math.max() ожидает, что будет независимый набор аргументов, а не один массив с аргументами.
 const temps = [18, 12, 21, 14, 18, 24, 25];
 
 console.log(Math.max(...temps));
+
+const lastWeekTemps = [1,2,3];
+const currentTemps = [4,5,6];
+const nextWeekTemps = [7, 8, 9];
+
+console.log(Math.max(...lastWeekTemps, ...currentTemps, ...nextWeekTemps));
+*/
 
 
 
