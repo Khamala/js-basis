@@ -91,6 +91,7 @@ console.log(slugify("How to become a JUNIOR developer in TWO WEEKS"));
                         // РЕПЕТА Модуль 3, затятие 5 ОБЪЕКТЫ       
 
 // 6.   ЗАДАЧА - Есть массив объектов. Ищем друга по имени.
+// РЕПЕТА Модуль 3, затятие 5 ОБЪЕКТЫ   
 /*
    const friends = [
     { name: 'Mango', online: false },
@@ -130,9 +131,16 @@ console.log(a);
 
 
 
-
- // ПОЛУЧАЕМ ВСЕ ИМЕНА ДРУЗЕЙ ИЗ МАССИВА ДРУЗЕЙ:
-
+// 7.   ЗАДАЧА - ПОЛУЧАЕМ ВСЕ ИМЕНА ДРУЗЕЙ ИЗ МАССИВА ДРУЗЕЙ:
+// РЕПЕТА Модуль 3, затятие 5 ОБЪЕКТЫ   
+/*
+const friends = [
+    { name: 'Mango', online: false },
+    { name: 'Kiwi', online: true },
+    { name: 'Poly', online: false },
+    { name: 'Ajax', online: true },
+];
+ 
 const getAllNames = function (allFriends) {
     let allNames = [];
     
@@ -142,12 +150,14 @@ const getAllNames = function (allFriends) {
 
     return allNames;
 };
-
 console.log(getAllNames(friends));
+*/
 
 
-                // ПОЛУЧАЕМ ВСЕХ ДРУЗЕЙ, КОТОРЫЕ ОНЛАЙН. Не имена а целиком друзей
 
+// 8.  ЗАДАЧА - ПОЛУЧАЕМ ВСЕХ ДРУЗЕЙ, КОТОРЫЕ ОНЛАЙН. Не имена а целиком друзей
+// РЕПЕТА Модуль 3, затятие 5 ОБЪЕКТЫ   
+/*
 const getFrendsByOnline = function (allFriends) {
     let frendsByOnline = [];
     
@@ -156,35 +166,31 @@ const getFrendsByOnline = function (allFriends) {
             frendsByOnline.push(friend);
         };
     };
-
     return frendsByOnline;
 };
-
 console.log(getFrendsByOnline(friends));
+*/
 
 
-                // ПОЛУЧАЕМ ОБЪЕКТ С 2МЯ МАССИВАМИ - ВСЕХ ДРУЗЕЙ, КОТОРЫЕ ОНЛАЙН И КОТОРЫЕ ОФФЛАЙН:
+
+// 9.    ЗАДАЧА -  ПОЛУЧАЕМ ОБЪЕКТ С 2МЯ МАССИВАМИ - ВСЕХ ДРУЗЕЙ, КОТОРЫЕ ОНЛАЙН И КОТОРЫЕ ОФФЛАЙН:
+/*       // ВЕРНУТЬ ОБЪЕКТ СТАТИСТИКИ.
+// РЕПЕТА Модуль 3, затятие 5 ОБЪЕКТЫ   
+// Т.е. я хочу вернуть из функции объект такого формата:
+            {
+                online: [],
+                ofline: [],
+            }
+
+const friends = [ 
+    { name: 'Mango', online: false },
+    { name: 'Kiwi', online: true },
+    { name: 'Poly', online: false },
+    { name: 'Ajax', online: true },
+];
 
 const getFrendsByOnlineStatus = function (allFriends) {
-    let frendsByOnline = [];
-    let frendsByOffline = [];
-
-    for (let friend of allFriends) {
-
-        if (friend.online) {
-            frendsByOnline.push(friend);
-        } else {
-            frendsByOffline.push(friend);
-        };
-    };
-
-    return {frendsByOffline, };
-};
-
-console.log(getFrendsByOnlineStatus(friends));
-
-
-const getFrendsByOnlineStatus1 = function (allFriends) {
+    
     const frendsByStatus = {
         online: [],
         offline: [],
@@ -194,15 +200,16 @@ const getFrendsByOnlineStatus1 = function (allFriends) {
 
         if (friend.online) {
             frendsByStatus.online.push(friend);
-        } else {
-            frendsByStatus.offline.push(friend);
+            continue;
         };
+            
+        frendsByStatus.offline.push(friend);
     };
 
     return frendsByStatus;
 };
-        
-console.log(getFrendsByOnlineStatus1(friends));
+console.log(getFrendsByOnlineStatus(friends));
+*/
 
 
 
@@ -212,12 +219,6 @@ console.log(getFrendsByOnlineStatus1(friends));
 
 
 
-const friends = [
-    { name: 'Mango', online: false },
-    { name: 'Kiwi', online: true },
-    { name: 'Poly', online: false },
-    { name: 'Ajax', online: true },
-];
 
                 
 
