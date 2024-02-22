@@ -597,6 +597,25 @@ console.log(Math.max(...lastWeekTemps, ...currentTemps, ...nextWeekTemps));
 
 
 
+// 12.    ЗАДАЧА - Есть рейтинг авторов и нужно найти автора с самым большим рейтингом. Деструктуризация
+// РЕПЕТА Модуль 3, затятие 6 ОБЪЕКТЫ
+
+const authors = {
+    kiwi: 4,
+    poly: 7,
+    ajax: 9,
+    mango: 6,
+};
+
+const keys = Object.keys(authors);
+
+for (const key of keys) {
+
+    let minRating = authors.key[0];
+
+    
+    
+};
 
 
 
