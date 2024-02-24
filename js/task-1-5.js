@@ -214,7 +214,7 @@ console.log(getFrendsByOnlineStatus(friends));
 
 
 // 10.    ЗАДАЧА - КОРЗИНА ТОВАРОВ
-// РЕПЕТА Модуль 3, затятие 5 ОБЪЕКТЫ
+// РЕПЕТА Модуль 3, затятие 5 ОБЪЕКТЫ-1, + Занятие 6 ОБЪЕКТЫ-2
 /*       
 Товар - это объект такого формата:   { name: 'картинка', price: 50 }
 В сложных объектах лучше не обращаться к свойствам напрямую, а писать методы для вызова свойств
@@ -266,141 +266,48 @@ const cart = {
 
 
 /*        
-// 1. Сделаем метод getItems, который должен вызывать массив значений items: [], 
-т.е. просто возвращать ссылку на этот массив
 
 const cart1 = {
     items: [],    
-
-    getItems() {
-        return this.items;
-    },
-}
-console.log(cart1.getItems());
-
-
-// 2. Теперь, есть метод add, куда мы получаем объект с товаром, который нужно добавить в items[]
-
-const cart2 = {
-    items: [],    
-
+        // Сделаем метод getItems, который должен вызывать массив значений items: [], 
+        // т.е. просто возвращать ссылку на этот массив
     getItems() {
         return this.items;
     },
 
+    // Теперь, есть метод add, куда мы получаем объект с товаром, который нужно добавить в items[]
+    
     add(produkt) {
         this.items.push(produkt);
-    },
-}
-cart2.add({ name: 'картинка', price: 50 });
-cart2.add({ name: 'картинка2', price: 60 });
-cart2.add({ name: 'картинка3', price: 80 });
-cart2.add({ name: 'картинка4', price: 90 });
-console.log(cart2.getItems());
-
-
-// 3. Метод remove(produktName) 
-// По имени, т.е.по свойству name нам надо перебрать массив items,
-// найти объект с переданным именем и его оттуда удалить
-
-const cart3 = {
-    items: [],    
-    getItems() {
-        return this.items;
-    },
-    add(produkt) {
-        this.items.push(produkt);
+    // И сейчас есть проблема, что если я добавляю 2 одинаковых продукта, то они подряд просто добавляться будут
     },
 
+        // Метод remove(produktName) По имени, т.е.по свойству name нам надо перебрать массив items,
+        // найти объект с переданным именем и его оттуда удалить
     remove(produktName) {
-        
-        for (const item of this.items) {
-            if (item.name === produktName) {
-                this.items.splice(this.items.indexOf(item), 1);
-            }
+            for (const item of this.items) {
+                if (item.name === produktName) {
+                    this.items.splice(this.items.indexOf(item), 1);
+                }
         }
-    },
-}
-cart3.add({ name: 'картинка', price: 50 });
-cart3.add({ name: 'картинка2', price: 60 });
-cart3.add({ name: 'картинка3', price: 80 });
-cart3.add({ name: 'картинка4', price: 90 });
-
-cart3.remove('картинка');
-console.log(cart3.getItems());
-
-
-// 4. Метод clear должен очищать корзину. Просто он должен возвращать пустой массив и все
-
-const cart4 = {
-    items: [],
-    getItems() {
-        return this.items;
-    },
-    add(produkt) {
-        this.items.push(produkt);
-    },
-    remove(produktName) {
         
-        for (const item of this.items) {
-            if (item.name === produktName) {
-                this.items.splice(this.items.indexOf(item), 1);
-            }
-        }
+
+
+
     },
+        // Метод clear должен очищать корзину. Просто он должен возвращать пустой массив и все
     clear() {
-        this.items = [];
-    },
-}
-cart4.add({ name: 'картинка', price: 50 });
-cart4.add({ name: 'картинка2', price: 60 });
-cart4.add({ name: 'картинка3', price: 80 });
-cart4.add({ name: 'картинка4', price: 90 });
-cart4.clear();
+            this.items = [];
+        },
 
-console.log(cart4.getItems());
-
-*/
-/*5. countTotalPrice доджен брать стоимость продукта и считать общую сумму
-
-    const cart5 = {
-    items: [],
-    getItems() {
-        return this.items;
-    },
-    add(produkt) {
-        this.items.push(produkt);
-    },
-    remove(produktName) {
-        
-        for (const item of this.items) {
-            if (item.name === produktName) {
-                this.items.splice(this.items.indexOf(item), 1);
-            }
-        }
-    },
-    clear() {
-        this.items = [];
-    },
-
-        countTotalPrice() {
-            let total = 0;
-            
-            for (const { price } of this.items) {
-                total += price;
-            };
-
-            return total;  
-    },
-}
-cart5.add({ name: 'картинка', price: 50 });
-cart5.add({ name: 'картинка2', price: 60 });
-cart5.add({ name: 'картинка3', price: 80 });
-cart5.add({ name: 'картинка4', price: 90 });
-
-console.log(cart5.countTotalPrice());
-
-
+        // countTotalPrice доджен брать стоимость продукта и считать общую сумму
+    countTotalPrice() {
+                let total = 0;
+                for (const { price } of this.items) {
+                    total += price;
+                };
+                return total;  
+        },
 
 // Для того, чтобы при добавлении уже существующего продукта, он не записывался как еще один новый
 // Мы при добавлении продукта в этом же методе создадим еще один объект, у которого будет свойство quantity
@@ -408,23 +315,52 @@ console.log(cart5.countTotalPrice());
 // Т.е.создали новый продукт, распылили в него тот продукт, что передали, и плюс добавили ему свойство quantity
 // И уже этот новый объект добавили в нашу корзину
 // И теперь у товаров в корзине имеется кастомное для корзины свойство
-// Потом при добавлении проверим, есть ли этот продукт уже в корзине. Продукты -  это массив, его надо перебрать
+// По
 
 
-const cart6 = {
-    items: [],
-    getItems() {
-        return this.items;
+    countTotalPrice() { 
+
+        const { items } = this;
+
+        let totalPrice = 0;
+
+        for (let { price, quantity } of items) {
+
+            totalPrice += price * quantity;
+        };
+
+        return totalPrice;
     },
 
-    add(produkt) {
+    increaseQuantity(produktName) { 
 
-        for (const item of this.items) {
-            if (item.name === produkt.name) {
-                item.quantity += 1;
+        for (let item of this.items) {
+            
+            const { name, quantity } = item;
+
+            if (name === produktName) {
+                quantity += 1;
                 return;
-            }
-        }
+            };
+        };
+
+    },
+
+    decreaseQuantity(produktName) { },
+
+};
+*/
+
+
+
+
+
+
+
+/*
+const cart6 = {
+    items: [],
+    
 
 
         const newProduct = {
@@ -478,11 +414,7 @@ console.log(cart6.countTotalPrice());
 /*
 
 const cart = {
-    items: [],
-
-    getItems() { 
-        return this.items;
-    },
+    
     
     addItems(produkt) { 
         const { items } = this;
@@ -522,39 +454,7 @@ const cart = {
         return this.items;
     },
 
-    countTotalPrice() { 
 
-        const { items } = this;
-
-        let totalPrice = 0;
-
-        for (let { price, quantity } of items) {
-
-            totalPrice += price * quantity;
-        };
-
-        return totalPrice;
-    },
-
-    increaseQuantity(produktName) { 
-
-        for (let item of this.items) {
-            
-            const { name, quantity } = item;
-
-            if (name === produktName) {
-                quantity += 1;
-                return;
-            };
-        };
-
-    },
-
-
-
-
-
-    decreaseQuantity(produktName) { },
 
 };
 
@@ -619,6 +519,40 @@ Object.entries(authors).forEach(entrie => {
 
 
 
+
+// 13.    ЗАДАЧА - на УДАЛЕНИЕ ДУБЛИРУЮЩИХ ЭЛЕМЕНТОВ из МАССИВА
+// Урок 2, Модуль 5. Метод filter
+/*
+// array.indexOf(el)   Эта штука возвращает индекс текущего элемента
+// Первая 'математика' вернет array.indexOf(el) ноль, и индекс тоже ноль. Отфильтрует его
+// А вот 4ая 'математика' вернет array.indexOf(el) снова ноль, т.к. метод indexOf() возвращает индекс
+// первого вхождения. А значение индекса 3. Поэтому выражение приведется к фоллз и эл не попадет в отфильтрованный массив
+
+const array = ['математика', 'физика', 'информатика', 'математика', 'физика', 'биология'];
+const uniqueCourses = array.filter((el, ind, array) => array.indexOf(el) === ind);
+console.log(uniqueCourses);
+
+// Есть и другие способы, намного проще, отфильтровать массив с уникальными значениями. Но это будет позже.
+
+const uniqueCourses1 = [...new Set(array)];
+console.log(uniqueCourses1);
+*/
+
+
+
+
+const allCars = [
+{ make: "Honda", model: "CR-V", type: "suv", amount: 14, price: 24045, onSale: true},
+{ make: "Honda", model: "Accord", type: "sedan", amount: 2, price: 22455, onSale: true },
+{ make: "Mazda", model: "Mazda 6", type: "sedan", amount: 8, price: 24195, onSale: false },
+{ make: "Mazda", model: "CX-9", type: "suv", amount: 7, price: 31520, onSale: true },
+{ make: "Toyota", model: "4Runner", type: "suv", amount: 19, price: 34210, onSale: false },
+{ make: "Toyota", model: "Sequoia", type: "suv", amount: 16, price: 45560, onSale: false },
+{ make: "Toyota", model: "Tacoma", type: "truck", amount: 4, price: 24320, onSale: true },
+{ make: "Ford", model: "F-150", type: "truck", amount: 11, price: 27110, onSale: true },
+{ make: "Ford", model: "Fusion", type: "sedan", amount: 13, price: 22120, onSale: true },
+{ make: "Ford", model: "Explorer", type: "suv", amount: 6, price: 31660, onSale: false }
+];
 
                 
 
