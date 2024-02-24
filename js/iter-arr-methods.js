@@ -131,3 +131,106 @@ console.log(playersTimePlaued);
 
 
 
+
+                            
+                            // МЕТОД find()
+                            // Урок 10, МОДУЛЬ 5
+                            
+/*
+const numbers = [5, 10, 15, 20, 25];
+
+const numbersToFind = numbers.find(number => number === 20);
+console.log(numbersToFind);
+
+// Но также если условие на сравнение, тожевернертся первый элемент, который удовлетворил условие
+
+const numbersToFind1 = numbers.find(number => number < 20);
+console.log(numbersToFind1);   // Вернет только 5
+*/
+
+
+                            // РЕПЕТА
+/*
+Метод FIND умеет найти уникальный элемент. И он находит именно ОДИН в коллекции. Первый, который нашелся. Или undefined
+Используется для поиска уникальных элементов в коллекции. Как только оно нашло первый подходящий, то оно прекращает поиск дальше.
+Поэтому обычно в этом методе не проверяют на больше меньше, а проверяют на равенство, напимер, 
+огда ищут пользователя по имени или по идентификатору
+
+ФИЛЬТР всегда гарантированно перебирает до конца и возвращает из коллекции целое подмножество. 
+А файнд находит первое удовлетворяющее условию значение в коллекции и прерывается. Если ни один элемент не подошел под условие, то оно внернет undefined. 
+Это очень удобно, т.к. undefined при прверке при приведени к булю превращается в фоллс
+
+Используется часто для поиска по какому-то уникальному свойству, например, идентификатору
+
+
+const numbers = [5, 10, 15, 20, 25];
+
+const numbersToFind = numbers.find(number => number === 20);
+console.log(numbersToFind);
+
+
+
+const playerIdToUpdate = 'player-3';
+
+const players = [
+    {id: 'player-1', name: 'Mango', timePlaued: 310, points: 54, online: false},
+    {id: 'player-2', name: 'Poly', timePlaued: 470, points: 92, online: true},
+    {id: 'player-3', name: 'Kiwi', timePlaued: 230, points: 48, online: true},
+    {id: 'player-4', name: 'Ajax', timePlaued: 150, points: 71, online: false},
+    {id: 'player-5', name: 'Chelsy', timePlaued: 80, points: 48, online: true},
+];
+
+const playerWithID = players.find(player => player.id === 'player-3');
+
+console.log(playerWithID);
+
+// ИЛИ через деструктуризацию
+
+const playerWithID1 = players.find(({id}) => id === 'player-3');
+
+console.log(playerWithID1);
+*/
+/*
+// В большинстве случаев это все-таки функции. Давайте перепишем на функцию
+
+const findPlayerWithId = (allPlauers, playerId) => {
+    return allPlauers.find(player => player.id === playerId)
+ };
+console.log(findPlayerWithId(players, 'player-2'));
+
+// Перепишем еще с деструктуризацией
+
+const findPlayerWithId = (allPlauers, playerId) => 
+    allPlauers.find(({id}) => id === playerId);
+ 
+console.log(findPlayerWithId(players, 'player-2'));
+
+*/
+
+
+
+                            //  МЕТОДы  every, some
+                            //  РЕПЕТА
+/*
+every - поэлементно перебирает оригинальный массив и возвращает труе, если все элементы массива удовлетворяют условию.
+Т.е. это вариант проверить, что все элементы массива буквально что-то там могут делать. Например, провеить, а все ли у меня онлайн?
+
+some - поэлементно перебирает оригинальный массив и возвращает труе, если хотя бы один из элементов массива удовлетворяет условию, то возвращает тру. 
+А если ни один не удовлетворяет условию, тогда возвращает фоллс.
+И он не возвращает кто именно это, т.е. не возвращает элемент, а просто говорит есть или нету.
+
+
+const players = [
+    {id: 'player-1', name: 'Mango', timePlaued: 310, points: 54, online: false},
+    {id: 'player-2', name: 'Poly', timePlaued: 470, points: 92, online: true},
+    {id: 'player-3', name: 'Kiwi', timePlaued: 230, points: 48, online: true},
+    {id: 'player-4', name: 'Ajax', timePlaued: 150, points: 71, online: false},
+    {id: 'player-5', name: 'Chelsy', timePlaued: 80, points: 48, online: true},
+];
+
+const isAllOnline = players.every(player => player.online);
+console.log(isAllOnline);
+
+const isOnline = players.some(player => player.online);
+console.log(isOnline);
+*/
