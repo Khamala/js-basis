@@ -521,7 +521,7 @@ Object.entries(authors).forEach(entrie => {
 
 
 // 13.    ЗАДАЧА - на УДАЛЕНИЕ ДУБЛИРУЮЩИХ ЭЛЕМЕНТОВ из МАССИВА
-// Урок 2, Модуль 5. Метод filter
+// Урок 10, Модуль 5. Метод filter
 /*
 // array.indexOf(el)   Эта штука возвращает индекс текущего элемента
 // Первая 'математика' вернет array.indexOf(el) ноль, и индекс тоже ноль. Отфильтрует его
@@ -540,7 +540,10 @@ console.log(uniqueCourses1);
 
 
 
-
+// 14.    ЗАДАЧА - на СОРТИРОВКУ ПО ВОЗРАСТАНИЮ
+// Урок 10, Модуль 5.
+// Нехай функція filterByPrice повертає масив автомобілів цена которых меньше, чем значение параметра threshold
+/*
 const allCars = [
 { make: "Honda", model: "CR-V", type: "suv", amount: 14, price: 24045, onSale: true},
 { make: "Honda", model: "Accord", type: "sedan", amount: 2, price: 22455, onSale: true },
@@ -554,15 +557,37 @@ const allCars = [
 { make: "Ford", model: "Explorer", type: "suv", amount: 6, price: 31660, onSale: false }
 ];
 
-                
-
-                
-
-
-
-
+const filterByPrice = ((array, threshold) => { 
+    return array.filter(arr => arr.price < threshold)
+});
+console.log(filterByPrice(allCars, 30000));
+*/
 
 
+
+
+// 14.    ЗАДАЧА - на 
+// Урок 10, Модуль 5. 
+// Нехай функція filterByPrice повертає масив автомобілів тип которых совпадает со значением type
+/*
+const allCars = [
+{ make: "Honda", model: "CR-V", type: "suv", amount: 14, price: 24045, onSale: true},
+{ make: "Honda", model: "Accord", type: "sedan", amount: 2, price: 22455, onSale: true },
+{ make: "Mazda", model: "Mazda 6", type: "sedan", amount: 8, price: 24195, onSale: false },
+{ make: "Mazda", model: "CX-9", type: "suv", amount: 7, price: 31520, onSale: true },
+{ make: "Toyota", model: "4Runner", type: "suv", amount: 19, price: 34210, onSale: false },
+{ make: "Toyota", model: "Sequoia", type: "suv", amount: 16, price: 45560, onSale: false },
+{ make: "Toyota", model: "Tacoma", type: "truck", amount: 4, price: 24320, onSale: true },
+{ make: "Ford", model: "F-150", type: "truck", amount: 11, price: 27110, onSale: true },
+{ make: "Ford", model: "Fusion", type: "sedan", amount: 13, price: 22120, onSale: true },
+{ make: "Ford", model: "Explorer", type: "suv", amount: 6, price: 31660, onSale: false }
+];
+
+const getCarsWithtype = ((arrayCars, type) => { 
+    return arrayCars.filter(car => car.type === type);
+});
+console.log(getCarsWithtype(allCars, "sedan"));
+*/
 
 
 
