@@ -654,7 +654,6 @@ console.log(getSortedCarsOnSale(allCars));
 Пример массива строк: const stringsArray = ['apple', '15', '-7', 'banana', '5', 'orange', '42'];
 В этой задаче используется условие для определения, является ли текущая строка числом, и, если это так, 
 добавляется в общую сумму с учетом условия по отрицательным числам.
-*/
 
 const stringsArray = ['apple', '15', '-7', 'banana', '5', 'orange', '42'];
 
@@ -665,6 +664,7 @@ const result = stringsArray
     .reduce((acc, item) => { return acc += item }, 0);
 
 console.log(result);
+*/
 
 
 
@@ -690,13 +690,28 @@ console.log(result);
 
 В этой задаче используется два уровня reduce(): внешний для обработки каждого слова в массиве, 
 и внутренний для подсчета гласных в каждом слове.
+
 */
 
 const wordsArray = ['apple', 'banana', 'orange', 'grape'];
 
-const arrayLetters = wordsArray.join(',');
+const result = wordsArray
+    .join('')
+    .split('')
+    .reduce((acc, letter) => {
 
-console.log(arrayLetters);
+        if (letter === 'a' || letter === 'e' || letter === 'i' || letter === 'o' || letter === 'u') {
+            acc += 1;  
+    }
+        return acc;
+}, 0);
+
+console.log(result);
+
+
+
+
+
 
 
 
