@@ -1,5 +1,5 @@
 
-                            //  REDUCE Швейцарский нож для работы с коллекцией. 
+                            //  REDUCE Швейцарский нож для работы с коллекцией.
                             //  РЕПЕТА
 /*
 Поэлементно перебирает массив и возвращает что угодно. Заменяет все на свете.
@@ -12,7 +12,7 @@
 Если не задали значение acc, то по умолчанию в него присвоится значение первого элемента коллекции.
 
 Когда REDUCE пербрал до конца, то возвращается в итоге значение аккумулятора
-*/
+
 
 const numbers = [5, 10, 15, 20, 25];
 
@@ -20,10 +20,33 @@ const numbers = [5, 10, 15, 20, 25];
 
 const total = numbers.reduce((acc, number) => acc + number, 0);
 console.log(total);
+*/
+
+                    // ПРИМЕР из УРОКА - как из МАССИВа с помощью REDUCE вернуть ОБЪЕКТ
+/*
+const numbers = [5, 10, 15, 20, 25];
+
+const total = numbers.reduce((acc, item, index) => {
+
+    // И это означает буквально, я хочу, чтобы у тебя -акк, было свойство с ключем [`Ключ ${index}`],  
+    // а сохрани в него значение item, т.е. значение элемента массива
+    acc[`Ключ ${index}`] = item;  
+
+    return acc; // И на каждой итерации нужно вернуть аккумулятор
+
+}, {}); // Начальное значение акк это пустой объект
+
+console.log(total);
+*/
+
+
+
+
 
 
         // ЗАДАЧА 1. Мы подсчитывали общую сумму зарплат:
-
+        // РЕПЕТА и такая же была на уроке
+/*      
 const salary = {
     mango: 100,
     poly: 50,
@@ -38,10 +61,12 @@ const totalSalary = Object.values(salary).reduce(
 );
 
 console.log(totalSalary);
+*/
 
 
         // ЗАДАЧА 2. Нам нужно насчитать общее количество часов, которые наиграли все игроки этого сервиса
-
+        // РЕПЕТА и такая же была на уроке
+/*
 const players = [
     {id: 'player-1', name: 'Mango', timePlaued: 310, points: 54, online: false},
     {id: 'player-2', name: 'Poly', timePlaued: 470, points: 92, online: true},
@@ -66,10 +91,13 @@ const totalTimePlaued1 = players.reduce((totalTime, { timePlaued }) =>
 );
     
 console.log(totalTimePlaued1);
+*/
 
 
-// ЗАДАЧА 3. Посчитаем корзину товаров
 
+                    // ЗАДАЧА 3. Посчитаем корзину товаров
+                    // РЕПЕТА и такая же была на уроке
+/*
 const cart = [
     { label: 'Apples', price: 100, quantity: 2 },
     { label: 'Bananas', price: 120, quantity: 3 },
@@ -205,3 +233,7 @@ const tegsStats3 = allTags.reduce(
     {},
 );
 console.log(tegsStats2);
+
+
+
+*/
