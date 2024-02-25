@@ -611,10 +611,8 @@ console.log(sortedBeiTimePlaued);
 /*
 16.    ЗАДАЧА - 
 // Урок 10, Модуль 5.
-Нехай функція getSortedCarsOnSale повертає масив автомобілів на розпродажі (Властивість onSale), 
-відсортованих за зростанням ціни.
-
-*/
+Нехай функція getSortedCarsOnSale повертає масив моделей автомобілів на розпродажі (Властивість onSale), 
+відсортованих по алфавиту. Но вернуть надо не массив объектов целиком, а только марки
 
  const allCars = [
 { make: "Honda", model: "CR-V", type: "suv", amount: 14, price: 24045, onSale: true},
@@ -630,18 +628,15 @@ console.log(sortedBeiTimePlaued);
 ];   
 
 const getSortedCarsOnSale = (arr) => {
-     return arr
-         .filter(item => item.onSale)
-         .toSorted((a, b) => a.price - b.price)
+      
+    return arr
+        .filter(item => item.onSale)
+        .map(item => item.model)
+        .map(item => item.toLowerCase())
+        .toSorted((a, b) => a.localeCompare(b));
 }
-console.table(getSortedCarsOnSale(allCars));
-
-
-
-
-
-
-
+console.log(getSortedCarsOnSale(allCars));
+*/
 
 
 
@@ -652,14 +647,26 @@ console.table(getSortedCarsOnSale(allCars));
 
 
 /*
-ЗАДАЧА - от Темы
+17.    ЗАДАЧА  - от Темы
 
-Задача: Сумма чисел, соответствующих определенному условию в массиве строк.Условие: Найти и сложить все числа, 
+Сумма чисел, соответствующих определенному условию в массиве строк. Условие: Найти и сложить все числа, 
 встречающиеся в строках массива. Если число отрицательное, умножьте его на -1 перед сложением.
-Пример массива строк:const stringsArray = ['apple', '15', '-7', 'banana', '5', 'orange', '42'];
+Пример массива строк: const stringsArray = ['apple', '15', '-7', 'banana', '5', 'orange', '42'];
 В этой задаче используется условие для определения, является ли текущая строка числом, и, если это так, 
 добавляется в общую сумму с учетом условия по отрицательным числам.
 */
+
+const stringsArray = ['apple', '15', '-7', 'banana', '5', 'orange', '42'];
+
+const result = stringsArray
+    
+    .map(item => Math.abs(Number(item)))
+    .filter(item => !isNaN(item))
+    .reduce((acc, item) => { return acc += item }, 0);
+
+console.log(result);
+
+
 
 /*
 ЗАДАЧА - от Темы
@@ -673,15 +680,33 @@ console.table(getSortedCarsOnSale(allCars));
 */
 
 
+
+
 /*
-ЗАДАЧА - от Темы
+// 18.   ЗАДАЧА - от Темы
 Задача: Подсчет количества гласных в строках массива.
 Условие: Подсчитать общее количество гласных (a, e, i, o, u) во всех строках массива.
-Пример массива строк:const wordsArray = ['apple', 'banana', 'orange', 'grape'];
+Пример массива строк: const wordsArray = ['apple', 'banana', 'orange', 'grape'];
 
 В этой задаче используется два уровня reduce(): внешний для обработки каждого слова в массиве, 
 и внутренний для подсчета гласных в каждом слове.
 */
+
+const wordsArray = ['apple', 'banana', 'orange', 'grape'];
+
+const arrayLetters = wordsArray.join(',');
+
+console.log(arrayLetters);
+
+
+
+
+
+
+
+
+
+
 
 /*
 ЗАДАЧА - от Темы
