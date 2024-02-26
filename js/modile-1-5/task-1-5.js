@@ -691,7 +691,6 @@ console.log(result);
 В этой задаче используется два уровня reduce(): внешний для обработки каждого слова в массиве, 
 и внутренний для подсчета гласных в каждом слове.
 
-*/
 
 const wordsArray = ['apple', 'banana', 'orange', 'grape'];
 
@@ -707,7 +706,7 @@ const result = wordsArray
 }, 0);
 
 console.log(result);
-
+*/
 
 
 
